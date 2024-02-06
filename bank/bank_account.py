@@ -8,6 +8,9 @@ class BankAccount:
         self.balance += amount
 
     def withdraw(self, amount):
+        if amount < 0:
+            raise ValueError("La valeur à retirer ne peut être négative.")
+
         if amount > self.balance:
             raise ValueError("Fonds insuffisants pour effectuer cette opération.")
         self.balance -= amount
